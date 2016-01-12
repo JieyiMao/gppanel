@@ -102,7 +102,7 @@
 #include <string>
 
 
-#include "mathplot.h"   //used drawing library
+#include "gpDefs.h"   //used drawing library
 #include "gpLayer.h"
 
 #define STDSTRING2WXSTRING(x)   (wxString(x.c_str(), wxConvUTF8))
@@ -152,7 +152,7 @@ typedef std::deque< gpLayer_s* >   gpLayerList_t;
  *</pre>
  *
  */
-class gpPanel : public wxPanel, public gpSizer//, private wxFileDropTarget,
+class WXDLLIMPEXP_MATHPLOT gpPanel : public wxPanel, public gpSizer//, private wxFileDropTarget,
 {
 
 

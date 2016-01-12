@@ -146,7 +146,7 @@ bool gpPopupGroup::SetLabel(int type, wxString label, wxString help)
 {
 	gpPopup* pop = Find(type);
 	if(pop){
-		((wxMenuItem*)*pop)->SetText(label);
+		((wxMenuItem*)*pop)->SetItemLabel(label);
 		((wxMenuItem*)*pop)->SetHelp(help);
 		return true;
 	}	return false;

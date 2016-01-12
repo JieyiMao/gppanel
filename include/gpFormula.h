@@ -24,6 +24,8 @@
 #ifndef GPFORMER_H
 #define GPFORMER_H
 
+#include "gpDefs.h"
+
 #include <math.h>
 #include <algorithm>
 #include <stack>
@@ -43,7 +45,7 @@ using std::string;
 /**
  *  Operator
  */
-class gpOper{
+class WXDLLIMPEXP_MATHPLOT gpOper{
     public:
         string  m_op;
         int     m_oplen;
@@ -73,7 +75,7 @@ typedef std::stack< double >  doubleStack_t;
  *   to operator list. List can be calculated by
  *   Reverse Polish notation algorithm.
  */
-class gpFormulaParser
+class WXDLLIMPEXP_MATHPLOT gpFormulaParser
 {
     public:
         operatorpList_t	    m_operatorList;
@@ -112,7 +114,7 @@ class gpFormulaParser
  *	double y = gpFormula("5*4"); // y <= 20
  *
  */
-class gpFormula
+class WXDLLIMPEXP_MATHPLOT gpFormula
 {
 	private:
 

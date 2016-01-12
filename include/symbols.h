@@ -1,4 +1,4 @@
-/**
+﻿/**
  *	@file		symbols.h
  *	@author     Jussi Vatjus-Anttila
  *	@date		13.10.2009

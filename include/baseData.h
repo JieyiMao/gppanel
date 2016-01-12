@@ -33,6 +33,7 @@
 #include <map>
 #include <limits>
 
+
 using std::string;
 using std::deque;
 using std::multimap;
@@ -43,7 +44,7 @@ using std::vector;
 #include "gpMath.h"
 #include "gpFormula.h"
 #include "Fourier.h"
-#include "mathplot.h"
+//#include "gpDefs.h"
 
 //This possible to handle a lot of data quicker
 //plot just second 1000 point to display..
@@ -95,7 +96,7 @@ typedef xyMultimap_t::iterator          xyMultimapIt_t;
 *  key = xyMultimap_t iterator
 *  value = label
 */
-class xyMultimapLabel
+class WXDLLIMPEXP_MATHPLOT xyMultimapLabel
 {
     public:
         xyMultimapIt_t  it;			//!< iterator to xyMultiMap
@@ -136,7 +137,7 @@ inline bool isanyinf(T value)
 /**
  *  Base class for XY data
  */
-class CMinMax
+class WXDLLIMPEXP_MATHPLOT CMinMax
 {
 	// protected variables
 	protected:
@@ -190,7 +191,7 @@ class CMinMax
  *  used by
  *  -use xyDeque_t for data storing
  */
-class baseXYMixedData : protected CMinMax
+class WXDLLIMPEXP_MATHPLOT baseXYMixedData : protected CMinMax
 {
 	protected:
         /**
@@ -249,7 +250,7 @@ class baseXYMixedData : protected CMinMax
  *	gpMath possibles to calculate severals
  *  mean-values from data.
  */
-class baseXYData : public CMinMax, public gpMath
+class WXDLLIMPEXP_MATHPLOT baseXYData : public CMinMax, public gpMath
 {
 	private:
 
@@ -522,7 +523,7 @@ class baseXYData : public CMinMax, public gpMath
  * bar Chart Layer
  * -use baseXYLayer (x scale is continous by default)
  */
-class barChartLayer : public mpFXYBar, public baseXYData
+class WXDLLIMPEXP_MATHPLOT barChartLayer : public mpFXYBar, public baseXYData
 {
     private:
 		double				m_lsb;
@@ -557,7 +558,7 @@ class barChartLayer : public mpFXYBar, public baseXYData
  * bar Chart Layer
  * -use baseXYLayer (x scale is continous by default)
  */
-class YbarChartLayer: public mpFYXBar, public baseXYData
+class WXDLLIMPEXP_MATHPLOT YbarChartLayer : public mpFYXBar, public baseXYData
 {
     private:
 		double				m_lsb;
@@ -592,7 +593,7 @@ class YbarChartLayer: public mpFYXBar, public baseXYData
  *  Mixed Line chart
  *  -use baseXYMixedLayer
  */
-class MixedLineChartLayer : public mpFXY, public baseXYMixedData
+class WXDLLIMPEXP_MATHPLOT MixedLineChartLayer : public mpFXY, public baseXYMixedData
 {
     private:
 
@@ -612,7 +613,7 @@ class MixedLineChartLayer : public mpFXY, public baseXYMixedData
  *  Mixed Line chart
  *  -use baseXYMixedLayer
  */
-class lineChartLayer : public mpFXY,  public baseXYData
+class WXDLLIMPEXP_MATHPLOT lineChartLayer : public mpFXY, public baseXYData
 {
     private:
 

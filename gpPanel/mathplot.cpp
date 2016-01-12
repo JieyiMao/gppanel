@@ -1,4 +1,4 @@
-/////////////////////////////////////////////////////////////////////////////
+ï»¿/////////////////////////////////////////////////////////////////////////////
 // Name:            mathplot.cpp
 // Purpose:         Framework for plotting in wxWindows
 // Original Author: David Schalig
@@ -51,6 +51,9 @@
 
 // #include "pixel.xpm"
 
+#include <wx/listimpl.cpp>
+WX_DEFINE_LIST(PointList);
+
 // Memory leak debugging
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -89,12 +92,12 @@ double mpWindow::zoomIncrementalFactor = 1.5;
 #endif
 
 #ifdef MP_POP_LANGUAGE_FI
-#define MP_POPMENU_CENTER               _("Keskitä")
-#define MP_POPMENU_CENTER_INFO          _("Keskitä ikkuna tähän pisteeseen")
+#define MP_POPMENU_CENTER               _("Keskit?)
+#define MP_POPMENU_CENTER_INFO          _("Keskit?ikkuna té‹’é‹˜ pisteeseen")
 #define MP_POPMENU_FIT                  _("Sovita")
 #define MP_POPMENU_FIT_INFO             _("Sovita ikkunaan")
-#define MP_POPMENU_ZOOM_IN              _("Zoomaus sisään")
-#define MP_POPMENU_ZOOM_IN_INFO         _("Zoomaus sisään")
+#define MP_POPMENU_ZOOM_IN              _("Zoomaus sisæ»—n")
+#define MP_POPMENU_ZOOM_IN_INFO         _("Zoomaus sisæ»—n")
 #define MP_POPMENU_ZOOM_OUT             _("Zoomaus ulos")
 #define MP_POPMENU_ZOOM_OUT_INFO        _("Zoomaus ulos")
 #define MP_POPMENU_LOCK_ASPECT          _("Lukitse suhde")
@@ -129,7 +132,7 @@ wxBitmap mpLayer::GetColourSquare(int side)
 {
     wxBitmap square(side, side, -1);
     wxColour filler = m_pen.GetColour();
-    wxBrush brush(filler, wxSOLID);
+	wxBrush brush(filler, wxBRUSHSTYLE_SOLID);
     wxMemoryDC dc;
     dc.SelectObject(square);
     dc.SetBackground(brush);
@@ -473,7 +476,7 @@ mpFXYBar::mpFXYBar(wxString name, int flags)
     SetName(name);
     m_flags = flags;
     m_type = mpLAYER_PLOT;
-    m_pen.SetStyle(wxSOLID);
+	m_pen.SetStyle(wxPENSTYLE_SOLID);
     m_gradienBackground = true;
     m_showLabel = true;
     m_useCustomLabel = false;
@@ -650,7 +653,7 @@ mpFYXBar::mpFYXBar(wxString name, int flags)
     SetName(name);
     m_flags = flags;
     m_type = mpLAYER_PLOT;
-    m_pen.SetStyle(wxSOLID);
+	m_pen.SetStyle(wxPENSTYLE_SOLID);
     m_brush = *wxTRANSPARENT_BRUSH;
     m_gradienBackground = false;
     m_showLabel = true;
@@ -838,7 +841,7 @@ mpFXYCandleStick::mpFXYCandleStick(wxString name, int flags)
     SetName(name);
     m_flags = flags;
     m_type = mpLAYER_PLOT;
-    m_pen.SetStyle(wxSOLID);
+	m_pen.SetStyle(wxPENSTYLE_SOLID);
     m_gradienBackground = true;
     m_candleBrush = *wxBLACK_BRUSH;
     m_candleBrush2 = *wxWHITE_BRUSH;
@@ -1788,7 +1791,7 @@ void mpScaleX::Plot(wxDC & dc, mpWindow & w)
 					else
 						dc.DrawLine( p, orgy, p, orgy+4);
 				} else { // draw grid dotted lines
-					m_pen.SetStyle(wxDOT);
+					m_pen.SetStyle(wxPENSTYLE_DOT);
 					dc.SetPen(m_pen);
 					if ((m_flags == mpALIGN_BOTTOM) && !m_drawOutsideMargins) {
 						dc.DrawLine( p, orgy+4, p, minYpx );
@@ -1799,7 +1802,7 @@ void mpScaleX::Plot(wxDC & dc, mpWindow & w)
 							dc.DrawLine( p, 0/*-w.GetScrY()*/, p, w.GetScrY() );
 						}
 					}
-					m_pen.SetStyle(wxSOLID);
+					m_pen.SetStyle(wxPENSTYLE_SOLID);
 					dc.SetPen(m_pen);
 				}
 				// Write ticks labels in s string
@@ -2054,7 +2057,7 @@ void mpScaleY::Plot(wxDC & dc, mpWindow & w)
                         dc.DrawLine( orgx-4, p, orgx, p); //( orgx, p, orgx+4, p);
                     }
                 } else {
-                    m_pen.SetStyle(wxDOT);
+					m_pen.SetStyle(wxPENSTYLE_DOT);
                     dc.SetPen( m_pen);
                     if ((m_flags == mpALIGN_LEFT) && !m_drawOutsideMargins) {
                         dc.DrawLine( orgx-4, p, endPx, p);
@@ -2065,7 +2068,7 @@ void mpScaleY::Plot(wxDC & dc, mpWindow & w)
                         dc.DrawLine( 0/*-w.GetScrX()*/, p, w.GetScrX(), p);
                             }
                     }
-                    m_pen.SetStyle(wxSOLID);
+					m_pen.SetStyle(wxPENSTYLE_SOLID);
                     dc.SetPen( m_pen);
                 }
                 // Print ticks labels
@@ -3223,7 +3226,7 @@ void mpWindow::OnPaint( wxPaintEvent& WXUNUSED(event) )
         //wxToolTip* tip = GetToolTip();
         //if(tip)tip->Enable(false);
 
-        wxPen pen(*wxBLACK, 1, wxDOT);
+		wxPen pen(*wxBLACK, 1, wxPENSTYLE_DOT);
         trgDc->SetPen(pen);
 
 
@@ -3744,7 +3747,7 @@ bool mpWindow::SaveScreenshot(const wxString& filename, int type, wxSize imageSi
 	}
     // Once drawing is complete, actually save screen shot
     wxImage screenImage = screenBuffer.ConvertToImage();
-    return screenImage.SaveFile(filename, type);
+	return screenImage.SaveFile(filename, (wxBitmapType)type);
 }
 
 void mpWindow::SetMargins(int top, int right, int bottom, int left)
@@ -4631,7 +4634,7 @@ mpPointLayer::mpPointLayer( mpLayer         *mplayer,
 	m_externalObject = 0;
 	m_SecondPointLayer = 0;
 
-    m_taggPen = wxPen( *wxBLACK, 1, wxDOT); //default taggpen
+	m_taggPen = wxPen(*wxBLACK, 1, wxPENSTYLE_DOT); //default taggpen
 
     int idd;
     wxMenu *submenu = new wxMenu();

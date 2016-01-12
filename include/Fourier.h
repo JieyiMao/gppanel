@@ -10,6 +10,8 @@
 #ifndef __MKCORE_MATH_GEOMETRY_FOURIER_H__
 #define __MKCORE_MATH_GEOMETRY_FOURIER_H__
 
+#include "gpDefs.h"
+
 //==============================================================================
 //	FORWARD DECLARATION
 //==============================================================================
@@ -19,7 +21,7 @@ namespace std { template<class T> class complex; }
 //==============================================================================
 //	CLASS Fourier
 //==============================================================================
-class Fourier
+class WXDLLIMPEXP_MATHPLOT Fourier
 {
 public:
 	enum

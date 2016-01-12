@@ -426,7 +426,7 @@ void gpLineLayer::SetPen( wxPen pen, wxString SeriesLabel )
  */
 void gpLineLayer::AddLegendInfo( int x, int y )
 {
-    wxBrush hatch2(wxColour(163,208,212), wxSOLID);
+	wxBrush hatch2(wxColour(163, 208, 212), wxBRUSHSTYLE_SOLID);
     leg = new mpInfoLegend(wxRect(x,y,40,40), &hatch2);
     leg->SetVisible(true);
 
@@ -448,7 +448,7 @@ void gpLineLayer::AddLegendInfo( int x, int y )
 
 void gpLineLayer::AddCoordInfo( int x, int y )
 {
-    wxBrush hatch(wxColour(200,200,200), wxSOLID);
+	wxBrush hatch(wxColour(200, 200, 200), wxBRUSHSTYLE_SOLID);
     nfo = new mpInfoCoords(wxRect(x,y,10,10), &hatch);
     nfo->SetFormat(m_XLabel + wxT(" = %f\n" + m_YLabel + wxT(" = %f")));
     nfo->SetVisible(true);

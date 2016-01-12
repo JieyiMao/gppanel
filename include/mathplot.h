@@ -83,8 +83,7 @@
 #include <map>
 
 WX_DECLARE_LIST(wxPoint, PointList);
-#include <wx/listimpl.cpp>
-WX_DEFINE_LIST(PointList);
+
 
 
 // For memory leak debug
@@ -711,7 +710,7 @@ protected:
 *   |-----+---+
 *   |--------++
 *   |--------+
-´* '''''''''''''''''''''
+? '''''''''''''''''''''
 */
 class WXDLLIMPEXP_MATHPLOT mpFYXBar : public mpLayer
 {
@@ -2215,7 +2214,7 @@ enum mpTaggLine
     ,mpHORIZONTAL_LINE=2
     ,mpCROSS_LINES=4
 };
-class polygon
+class WXDLLIMPEXP_MATHPLOT polygon
 {
 	private:
 		PointList m_polygon;
@@ -2244,11 +2243,11 @@ class polygon
 		*       [x y]|  m21  m22  | = [m11*x + m21*y, m12*x + m22*y]
 		*            |_ 0    0   _|
 		*
-		*       Rotation Clockwise by Ø, scaling isotropic by s
+		*       Rotation Clockwise by ? scaling isotropic by s
 		*             _                    _
-		*            | s * cos Ø    sin Ø   |
-		*       [x y]|  -sin Ø    s * cos Ø |=[sx*(cos Ø)*x-(sin Ø)*y,
-		*            |_    0          0    _|  (sin Ø)*x+sy*(cos Ø)*y]
+		*            | s * cos ?   sin ?  |
+		*       [x y]|  -sin ?   s * cos ?|=[sx*(cos ?*x-(sin ?*y,
+		*            |_    0          0    _|  (sin ?*x+sy*(cos ?*y]
 		*/
 		wxPoint* rotate(wxPoint pt, double angle, double scale, bool angleInRadians=false)
 		{
@@ -2259,7 +2258,7 @@ class polygon
 			 return point;
 		}
 };
-class mpPointDeriveClass {
+class WXDLLIMPEXP_MATHPLOT mpPointDeriveClass {
     public:
         mpPointDeriveClass(){}
         /** This virtual function must implement to final object */

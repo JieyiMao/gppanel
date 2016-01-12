@@ -15,13 +15,15 @@
 #ifndef GPMATH_H
 #define GPMATH_H
 
+#include "gpDefs.h"
+
 #include <math.h>
 #include <string>
 #include <map>
 using std::map;
 
-class gpMath;
-class mean;
+class WXDLLIMPEXP_MATHPLOT gpMath;
+class WXDLLIMPEXP_MATHPLOT mean;
 
 #include "symbols.h"
 
@@ -57,7 +59,7 @@ using namespace mean_n;
 *	get various means from data.
 *	-
 */
-class mean
+class WXDLLIMPEXP_MATHPLOT mean
 {
     protected:
         int counter;		//!< counter for private using
@@ -150,7 +152,7 @@ class mean
 *	inherited  from mean functions
 *	@todo the possibility of further development of new mathematical / statistical indicators mission
 */
-class gpMath : public mean
+class WXDLLIMPEXP_MATHPLOT gpMath : public mean
 {
     public:
 		/** Default constructor */

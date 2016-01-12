@@ -19,6 +19,8 @@
 #ifndef GP_POPUP_H
 #define GP_POPUP_H
 
+#include "gpDefs.h"
+
 #define POPUP_FILE      1
 #define POPUP_CHART     2
 #define POPUP_EDIT      4
@@ -32,7 +34,7 @@
 *   -type
 *   -wxMenuItem
 */
-class gpPopup
+class WXDLLIMPEXP_MATHPLOT gpPopup
 {
     private:
         int         m_type;		//!< popup type

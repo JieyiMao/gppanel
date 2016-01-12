@@ -15,7 +15,7 @@
 
 typedef std::deque<mpPointLayer*> mpPointList_t;
 
-class gpLineLayer : public gpLayer
+class WXDLLIMPEXP_MATHPLOT gpLineLayer : public gpLayer
 {
     protected:
         /* Protected variables */

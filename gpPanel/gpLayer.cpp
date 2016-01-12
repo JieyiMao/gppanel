@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  *	@file		gpLayer.cpp
  *	@author     Jussi Vatjus-Anttila
  *	@date		10.09.2009
@@ -8,7 +8,7 @@
  *  Original Author: Jussi Vatjus-Anttila
  *  Created:         10/09/2009
  *  Last edit:       21/04/2012
- *  Copyright:       © Jussi Vatjus-Anttila
+ *  Copyright:       ?Jussi Vatjus-Anttila
  *  Licence:         wxWindows Library License v3.1
  *	URL:			 http://code.google.com/p/gppanel/
  *

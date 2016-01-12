@@ -39,7 +39,7 @@ typedef std::map<int, gpEnableMap_t >  	gpEnableList_t;
 *  gpYAXIS_DEFAULT = true
 *
 */
-class gpPopupGroup
+class WXDLLIMPEXP_MATHPLOT gpPopupGroup
 {
     private:
         wxString    m_groupLabel,

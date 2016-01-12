@@ -18,12 +18,14 @@
 #ifndef GP_SIZER_H
 #define GP_SIZER_H
 
+#include "gpDefs.h"
+
 #include <wx/window.h>
 #include <wx/sizer.h>
 
 #include <deque>
 
-class gpSizerWin
+class WXDLLIMPEXP_MATHPLOT gpSizerWin
 {
     private:
         wxWindow    *m_window;
@@ -37,7 +39,7 @@ class gpSizerWin
         int GetProportion() const { return m_proportion; }
 };
 
-class gpHorizontalWindows
+class WXDLLIMPEXP_MATHPLOT gpHorizontalWindows
 {
     private:
         std::deque< gpSizerWin > m_windowList;
@@ -54,7 +56,7 @@ class gpHorizontalWindows
         void Rewind();
         bool NextWindow(gpSizerWin& window);
 };
-class gpSizer
+class WXDLLIMPEXP_MATHPLOT gpSizer
 {
     private:
         std::deque< gpHorizontalWindows > m_windowList;

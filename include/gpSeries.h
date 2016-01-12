@@ -5,7 +5,7 @@
 #include "baseData.h"
 #include <vector>
 
-class gpSeries
+class WXDLLIMPEXP_MATHPLOT gpSeries
 {
     private:
 

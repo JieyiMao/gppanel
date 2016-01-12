@@ -16,6 +16,8 @@
 #ifndef GPMENU_GROUP_H
 #define GPMENU_GROUP_H
 
+#include "gpDefs.h"
+
 #define gpMENU_GROUP_VISIBLE 1
 
 #include <wx/menu.h>
@@ -40,7 +42,7 @@ WX_DECLARE_HASH_MAP( int, wxMenuItem*, wxIntegerHash, wxIntegerEqual, MenuHashMa
 *	RewindMenuItems(), and NextItem()
 *
 */
-class menuGroup
+class WXDLLIMPEXP_MATHPLOT menuGroup
 {
     private:
 		/** Map for wxMenuItem's*/

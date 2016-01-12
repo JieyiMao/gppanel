@@ -23,6 +23,10 @@
  */
 
  #include "gpFormula.h"
+ 
+#ifndef M_PI
+#define M_PI       3.14159265358979323846
+#endif
 
 /*std::string d2string(double d)
 {
@@ -347,7 +351,7 @@ void gpFormula::toUpperCase(string& str)
 {
 	// explicit cast needed to resolve ambiguity
 	std::transform(str.begin(), str.end(), str.begin(),
-			   (int(*)(int)) std::toupper);
+			   (int(*)(int)) toupper);
 
 }
 

@@ -16,6 +16,7 @@
 #ifndef GPMENU_H
 #define GPMENU_H
 
+#include "gpDefs.h"
 
 #include <wx/menu.h>
 #include <wx/toolbar.h>
@@ -37,7 +38,7 @@
 *   MyMenu->Append( wxNewId(), _("HISTOGRAM"), histogram->GetMenu(), wxEmptyString);
 *   Connect(idd,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&gpSampleFrame::OnMenuEnableSelected);
 */
-class gpMenu
+class WXDLLIMPEXP_MATHPLOT gpMenu
 {
     public:
         /**
